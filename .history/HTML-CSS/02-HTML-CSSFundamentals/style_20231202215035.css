@@ -156,9 +156,9 @@ a:active {
 }
 
 nav a:link {
-  margin-right: 30px;
-  display: inline-block;
-  margin-top: 10px;
+  background-color: orangered;
+  /* margin-right: 30px;
+  display: inline-block; */
 }
 
 nav a:link:last-child {

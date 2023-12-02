@@ -158,7 +158,6 @@ a:active {
 nav a:link {
   margin-right: 30px;
   display: inline-block;
-  margin-top: 10px;
 }
 
 nav a:link:last-child {
