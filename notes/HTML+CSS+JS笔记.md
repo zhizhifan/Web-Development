@@ -590,8 +590,11 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
 #### 选择器扩展
 
 1. ID 选择器
+
 2. 元素选择器
+
 3. 类选择器
+
 4. 通用选择器（universal selector）
 
    `*`会选中所有元素（head, body, html 和其中的元素都会被选中并改变样式）
@@ -661,31 +664,63 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
      }
      ```
 
-7. 伪元素选择器
+7. **伪元素选择器（pseudo element）**
 
-before
+   伪元素是HTML中不存在的元素，但是我们仍然可以对它们进行选择并设置属性。所有伪元素实际上都是**行块盒**。因而它们宽高值取决于内容，padding和margin默认为0。
 
-after(相当于在元素前/后面添加内容和样式)
+   伪类选择器使用`:`，而伪元素选择器使用`::`。
 
-```css
-<head>
-  <style>
-        span::before{
-            content:'《';
-                color: red;
-            }
-        span::after{
-            content:'》';
-                color: red;
-        }
-    </style>
-</head>
-<body>
-    <p>
-       <span>老人与海</span>是一本好书
-    </p>
-</body>
-```
+   - `first-letter`
+
+     ```html
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="style.css" />
+       <title>Document</title>
+     </head>
+     <body>
+       <p class="demo-p">
+         This is a paragraph
+       </p>
+     </body>
+     </html>
+     ```
+
+     ```css
+     .demo-p:: first-letter {
+         color: red;
+     }
+     ```
+
+   - `first-line`
+
+   - `before/after`：
+
+     设置before和after，相当于在元素前（后）面添加内容和样式。由于伪元素是行块盒，所以可以改变他的`display`属性进行调整。
+
+     设置`before/after`伪元素时，可以声明`content`，`color`等样式。
+
+     ```css
+     .body {
+         position: relative;
+     }
+     
+     .demo-p::before {
+         content: "TOP";
+         display: inline-block;
+         background-color: #ffe70e;
+       	color: #444;
+       	font-size: 16px;
+       	font-weight: bold;
+       	padding: 5px 10px;
+       	position: absolute;
+       	top: -10px;
+       	right: -25px;
+     }
+     ```
 
 #### 选择器的组合（combining selectors）
 
@@ -715,10 +750,27 @@ after(相当于在元素前/后面添加内容和样式)
    }
    ```
 
-   子元素 —— >
+3. 其他
 
-3. **相邻**的兄弟元素 —— +
-4. 后面出现的所有兄弟元素 —— ~
+   - 兄弟元素选择器
+
+     相邻的兄弟元素用`+`进行选择，所有兄弟元素则用`~`进行选择：
+
+     ```css
+     h1 + p {
+         font-size: 24px;
+     }
+     
+     /* 所有h1元素的相邻兄弟元素 */
+     
+     h1 ~ p {
+         font-size: 24px;
+     }
+     ```
+
+   - 子元素选择器
+
+     `>`
 
 ### 声明块
 
@@ -1074,7 +1126,7 @@ color: inherit;
 
 默认的块盒有：`容器元素`、`body`、`h1~h6`、`p`、`ul`、`ol`、`li`
 
-行盒则取决于它们内容的多少。内容很多的话也不会进行换行，因而它们适合较小元素。==对于行盒来说宽度和高度都没有用，并且paddings和margins也只在水平方向上有用==。
+行盒则取决于它们内容的多少。内容很多的话也不会进行换行，因而它们适合较小元素。==对于行盒来说**宽度和高度**都没有用（取决于内容，被设置为auto），并且paddings和margins也只在水平方向上有用（默认被设置为0）==。
 
 常见的行盒：`strong`、`em`、`span`、`a`、`img`、`video`、`audio`、`button`
 
