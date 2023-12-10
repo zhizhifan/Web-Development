@@ -2,15 +2,21 @@
 
 [toc]
 
+
+
 ## 前置知识
 
 1. 前端和后端开发（front-end，back-end）。
 2. 在前端开发中的三种语言：HTML 负责页面的内容（content），CSS 负责内容的呈现（presentation），JavaScript 则是真正的编程语言，负责添加动态和页面的交互（dynamic effects and web applications）
 3. 开发者工具（DevTools）
 
+------
+
 ## HTML（HyperText Markup Language）
 
 我们使用 HTML 来构建页面内容，它包括了不同类型的元素，例如：**paragraphs, links, headings, images, video**等等。
+
+
 
 ### HTML 结构
 
@@ -22,6 +28,8 @@
 <!DOCTYPE html>
 ```
 
+
+
 #### 根元素（html element）
 
 ```html
@@ -30,6 +38,8 @@
 
 - 一个界面最多一个，且该元素为父元素或者祖先元素。HTML 中没有强制要求书写该元素。
   - 其中的 `lang`属性为全局属性，表示该元素内部使用的文字是由哪一种自然语言书写而成的。如中文为：`cmn-hans`
+
+
 
 #### 头部元素（head element）
 
@@ -46,6 +56,8 @@
 
 - meta 元素指定元素据，其也为特殊的元素，没有结束标签。它的 `charset`属性指定网页内容编码。
 
+
+
 #### 身体元素（body element）
 
 页面上所有要参与的元素，都应该放置其中。它们将在页面中展现：
@@ -53,6 +65,8 @@
 ```html
 <body></body>
 ```
+
+
 
 ### 语义化（semantic）
 
@@ -65,6 +79,8 @@
 而所有的元素的展示效果与元素本身都没有关系，是由 css 语言决定的。
 **所以选择元素只是基于元素本身的含义，而不是效果**。
 
+
+
 ### 注释书写格式
 
 HTML 中的注释可以这样写：
@@ -72,6 +88,8 @@ HTML 中的注释可以这样写：
 ```html
 <!-- this is the test -->
 ```
+
+
 
 ### 实体字符（HTML Enitity）
 
@@ -85,6 +103,8 @@ HTML 中的注释可以这样写：
    ```
 
 另外可以通过该网址：[webpage here]() 进行更多实体字符的查找。
+
+
 
 ### 路径的写法
 
@@ -129,6 +149,8 @@ HTML 中的注释可以这样写：
    ```html
    <a href="../test.html"></a>
    ```
+
+
 
 ### 元素
 
@@ -198,6 +220,8 @@ pre 元素的本质其实就是因为它有一个默认的 css 属性
   </code>
 </body>
 ```
+
+
 
 #### 图片元素
 
@@ -286,6 +310,8 @@ map 的子元素：area
 </figure>
 ```
 
+
+
 #### 链接元素
 
 a 元素（anchor）
@@ -347,6 +373,8 @@ content 内容部分的文本是对应链接上显示的文字。a 元素的属�
      BiliBili
    </a>
    ```
+
+
 
 #### 多媒体元素
 
@@ -590,11 +618,8 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
 #### 选择器扩展
 
 1. ID 选择器
-
 2. 元素选择器
-
 3. 类选择器
-
 4. 通用选择器（universal selector）
 
    `*`会选中所有元素（head, body, html 和其中的元素都会被选中并改变样式）
@@ -666,59 +691,59 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
 
 7. **伪元素选择器（pseudo element）**
 
-   伪元素是HTML中不存在的元素，但是我们仍然可以对它们进行选择并设置属性。所有伪元素实际上都是**行块盒**。因而它们宽高值取决于内容，padding和margin默认为0。
+   伪元素是 HTML 中不存在的元素，但是我们仍然可以对它们进行选择并设置属性。所有伪元素实际上都是**行块盒**。因而它们宽高值取决于内容，padding 和 margin 默认为 0。
 
-   伪类选择器使用`:`，而伪元素选择器使用`::`。
+   伪类选择器使用 `:`，而伪元素选择器使用 `::`。
 
    - `first-letter`
 
      ```html
      <!DOCTYPE html>
      <html lang="en">
-     <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="style.css" />
-       <title>Document</title>
-     </head>
-     <body>
-       <p class="demo-p">
-         This is a paragraph
-       </p>
-     </body>
+       <head>
+         <meta charset="UTF-8" />
+         <meta
+           name="viewport"
+           content="width=device-width, initial-scale=1.0"
+         />
+         <link rel="stylesheet" href="style.css" />
+         <title>Document</title>
+       </head>
+       <body>
+         <p class="demo-p">This is a paragraph</p>
+       </body>
      </html>
      ```
 
      ```css
      .demo-p:: first-letter {
-         color: red;
+       color: red;
      }
      ```
 
    - `first-line`
+   - `before/after`
 
-   - `before/after`：
+     设置 before 和 after，相当于在元素前（后）面添加内容和样式。由于伪元素是行块盒，所以可以改变他的 `display`属性进行调整。
 
-     设置before和after，相当于在元素前（后）面添加内容和样式。由于伪元素是行块盒，所以可以改变他的`display`属性进行调整。
-
-     设置`before/after`伪元素时，可以声明`content`，`color`等样式。
+     设置 `before/after`伪元素时，可以声明 `content`，`color`等样式。
 
      ```css
      .body {
-         position: relative;
+       position: relative;
      }
      
      .demo-p::before {
-         content: "TOP";
-         display: inline-block;
-         background-color: #ffe70e;
-       	color: #444;
-       	font-size: 16px;
-       	font-weight: bold;
-       	padding: 5px 10px;
-       	position: absolute;
-       	top: -10px;
-       	right: -25px;
+       content: "TOP";
+       display: inline-block;
+       background-color: #ffe70e;
+       color: #444;
+       font-size: 16px;
+       font-weight: bold;
+       padding: 5px 10px;
+       position: absolute;
+       top: -10px;
+       right: -25px;
      }
      ```
 
@@ -754,17 +779,17 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
 
    - 兄弟元素选择器
 
-     相邻的兄弟元素用`+`进行选择，所有兄弟元素则用`~`进行选择：
+     相邻的兄弟元素用 `+`进行选择，所有兄弟元素则用 `~`进行选择：
 
      ```css
      h1 + p {
-         font-size: 24px;
+       font-size: 24px;
      }
-     
+
      /* 所有h1元素的相邻兄弟元素 */
-     
+
      h1 ~ p {
-         font-size: 24px;
+       font-size: 24px;
      }
      ```
 
@@ -873,7 +898,7 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
 
 7. text-align
 
-   就像在 MS Word 中一样的文字对齐：`left/right/center`：
+   就像在 MS Word 中一样的文字对齐：`left/right/center`。改样式可以使得**块元素**内部的内容进行对齐：
 
    ```css
    h1 {
@@ -947,7 +972,7 @@ line-height: 1.5;
 
 ---
 
-### <font color="red">层叠</font>
+### 层叠 
 
 **声明冲突：同一个样式，多次应用到同一个元素**
 
@@ -995,7 +1020,9 @@ p {
 2. 作者样式表中的普通样式
 3. 浏览器默认样式表中的样式
 
-#### 比较特殊性(重要性相同的情况下，冲突仍然存在，进行特殊性比较)（Selector Specificity）
+#### 比较特殊性（Selector Specificity）
+
+重要性相同的情况下，冲突仍然存在，进行特殊性比较
 
 - 看选择器
   - 总体规则：选择器选中的范围越窄，越特殊。简单来说，如果存在多个选择器且*冲突存在*的情况下，id 选择器，（伪）类选择器，元素选择器，通用选择器依次优先。若同时存在多个相同选择器，则最后一个选择器优先。
@@ -1112,31 +1139,49 @@ color: inherit;
 
 - initial：初始值，将该属性设置为默认值
 
-### <font color='red'>盒模型</font>（box model）
+------
+
+### 盒模型（box model）
 
 盒模型，意味着每个元素在页面中都会生成一个矩形区域（盒子）。
 
 盒子类型分为三种：
 
-1. **行盒**（inline-level boxes)，`display`属性等于`inline`的元素
-2. **块盒**（block-level boxes)，`display`属性等于`block`的元素
-3. **行块盒**，`display`属性等于`inline-block`的元素
+1. **行盒**（inline-level boxes)，`display`属性等于 `inline`的元素
+2. **块盒**（block-level boxes)，`display`属性等于 `block`的元素
+3. **行块盒**，`display`属性等于 `inline-block`的元素
 
-块盒占据了父元素宽度的100%，不管它们的内容多少。如果内容很多会换行，如果内容不多仍是原样。这使得块盒永远独占一行，不能并排放置。
+------
 
-默认的块盒有：`容器元素`、`body`、`h1~h6`、`p`、`ul`、`ol`、`li`
+#### 块盒
 
-行盒则取决于它们内容的多少。内容很多的话也不会进行换行，因而它们适合较小元素。==对于行盒来说**宽度和高度**都没有用（取决于内容，被设置为auto），并且paddings和margins也只在水平方向上有用（默认被设置为0）==。
+**块盒**占据了父元素宽度的 100%，无论它们的内容多少。此外，块盒永远独占一行，每个块盒都会在新的一行开始，它们不能并排放置。
 
-常见的行盒：`strong`、`em`、`span`、`a`、`img`、`video`、`audio`、`button`
+> 默认的块盒有：`容器元素`、`body`、`h1~h6`、`p`、`ul`、`ol`、`li`
 
-行块盒从外面看是行盒，从内部表现却是块盒。它们取决于内容的宽度，不会导致换行符，因而不独占一行，仍在一行中。但盒模型中所有尺寸以及paddings、margins都适用于行块盒。
+------
 
-其实`img`元素与其他行盒不同，它并非纯粹的行盒，而是表现的类似行块盒。不然它也不能设置宽高。
+#### 行盒
 
-![box-model](D:\Learning Materials\前端\notes\images\css-boxmodel.png)
+**行盒**则取决于它们内容的多少，并不会占据父元素的100%，因而它们适合包裹较小的内容片段。此外，行盒不会独占一行，而是紧挨在一起。==对于行盒来说**宽度和高度**都没有用（取决于内容，被默认设置为 auto），并且 paddings 和 margins 也只在水平方向上有用（默认被设置为 0）==。
 
-![width and height](D:\Learning Materials\前端\notes\images\calculating widthheight.png)
+> 常见的行盒：`strong`、`em`、`span`、`a`、`img`、`video`、`audio`、`button`
+
+------
+
+#### 行块盒
+
+**行块盒**从外面看是行盒，从内部表现却是块盒。它们取决于内容的宽度，不会导致换行符，因而不独占一行，仍在一行中。但盒模型中所有尺寸以及 paddings、margins 都适用于行块盒。
+
+> `img`元素与其他行盒不同，它并非纯粹的行盒，而是表现的类似**行块盒**。(图片可以设置宽高)
+
+------
+
+#### 性质
+
+![box-model](images\css-boxmodel.png)
+
+![width-height](images\calculating widthheight.png)
 
 如上图所示，无论是行盒、还是块盒，都会由下面几个部分组成：
 
@@ -1155,6 +1200,8 @@ color: inherit;
    }
    ```
 
+   
+
 2. 填充(内边距) （padding）
 
    盒子边框到盒子内容的距离。
@@ -1170,29 +1217,30 @@ color: inherit;
 
    填充区+内容区 = **填充盒 padding-box**
 
-3. 边框 border
+   
 
-   边框 = 边框样式 + 边框宽度 + 边框颜色
+3. 边框（border）
 
-   边框样式：border-style
+   边框 = 边框样式（border-style） + 边框宽度（border-width） + 边框颜色（border-color）。
 
-   默认为 none，常见的样式有 solid(实线边框)
+   这三种属性可以被单独设置声明：且border-style(width,color)都是简写属性，可以通过上右下左（或上下，左右）的顺序来设置。
 
-   边框宽度：border-width
+   这三种属性也可以同时被声明，直接使用`border`进行声明。
 
-   边框颜色：border-color
+   边框+填充区+内容区 = **边框盒（border-box）**，于是为了简易代码，我们常常不单独设置内容盒的宽高（最后布局时仍然要考虑填充和边界），转而会直接设置**边框盒**的宽高，这样可以实现自动计算：
 
-   默认按照字体颜色设置
+   ```css
+   * {
+       box-sizing: border-box;
+   }
+   /* 初始化的时候就默认指定为边框盒 */
+   ```
 
-   设置圆角边框: border-radius
-
-   **border-style(width,color)都是简写属性，也可以通过上右下左来设置**
-
-   边框+填充区+内容区 = **边框盒 border-box**
+   
 
 4. 外边距（margin）
 
-   边框到其他盒子的距离。margin-top、margin-left、margin-right、margin-bottom。简写属性 margin 和 padding 用法一致。一般我们在**设置垂直方向上元素之间的间距时**，会直接使用 `margin-bottom`。
+   边框到其他盒子的距离。`margin-top`、`margin-left`、`margin-right`、`margin-bottom`。简写属性 margin 和 padding 用法一致。一般我们在**设置垂直方向上元素之间的间距时**，会直接使用 `margin-bottom`。
 
    ```js
    li {
@@ -1203,7 +1251,7 @@ color: inherit;
    }
    ```
 
-   通常会在一开始重置所有 padding 和 margin 为 0：
+   通常会在一开始重置所有元素的 padding 和 margin 为 0：
 
    ```css
    * {
@@ -1213,7 +1261,7 @@ color: inherit;
    /* 使用通配符选择器 */
    ```
 
-
+------
 
 ### 盒模型应用
 
@@ -1239,7 +1287,7 @@ color: inherit;
         height:20px;
         color: #a7a7a7;
         background-color: #2d2e36;
-        box-sizing: border-box;        #将原本内容盒的宽高设置成边框盒的宽高
+        box-sizing: border-box;        /*将原本内容盒的宽高设置成边框盒的宽高*/
         line-height:40px
         }
 </style>
@@ -1296,7 +1344,7 @@ word-break:keep-all
 </style>
 ```
 
-#### 行盒的盒模型
+#### 行盒（inline）
 
 常见的行盒：包含具体内容的元素
 
@@ -1305,7 +1353,7 @@ a、span、strong、em、i、img、video、audio
 ##### 显著特点
 
 1. 盒子沿着内容沿伸
-2. 行盒不能设置宽高
+2. **行盒不能设置宽高**
 
 调整行盒的宽高，应该使用字体大小、行高、字体类型，间接调整。
 
@@ -1327,8 +1375,6 @@ a、span、strong、em、i、img、video、audio
 
 使用------>display：inline-block
 
-1. 
-
 #### 值得注意的一个小知识点:空白折叠
 
 空白折叠，发生在行盒（行块盒）内部 或 行盒（行块盒）之间
@@ -1345,26 +1391,25 @@ a、span、strong、em、i、img、video、audio
 
 **可替换元素类似于行块盒，盒模型中所有尺寸都有效。**
 
-### 视觉格式化模型
+------
 
-盒模型：规定单个盒子的规则
+### 布局（layout）
 
-视觉格式化模型（布局规则）：页面中的多个盒子排列规则
+盒模型只是规定了单个元素的规则。而布局则规定了页面中的多个盒子（文字，图片和其他内容）的排列方式。
 
-视觉格式化模型，大体上将页面中盒子的排列分为三种方式：
+布局给予了页面**视觉格式化模型**，在这个模型中我们放置对应的内容，进行排版组合。如果进一步细分，布局可以指两方面，一个是整个页面的布局（page layout），一个是页面中单个组件的布局（component layout）。
 
-1. 常规流
-2. 浮动
-3. 定位
+目前布局总共有三种形式：`float`，`flexbox`，`cssgrid`。
+
+------
 
 #### 常规流布局
 
-- 几种叫法：常规流、==文档流==、普通文档流、常规文档流
-- 所有元素，默认情况下，都属于常规流布局
-- 总体规则：块盒独占一行，行盒水平依次排列
-- 包含块（containing block）：每个盒子都有它的包含块，包含块决定了盒子的排列区域。
+在介绍三种布局形式之前，先了解一下常规流（又称作文档流、普通文档流、常规文档流）。这是页面布局默认的方式，总体规则就是：块盒独占一行，行盒水平依次排列。
 
-绝大部分情况下：**盒子的包含块，为其父元素的内容盒**
+同时，每个盒子都有它的包含块（绝大部分情况下：**盒子的包含块，为其父元素的内容盒**），包含块决定了盒子的排列区域。如果所有元素的包含块都是`body`元素，那么就是在页面上进行简单的顺序排列，如果某些元素有其他包含块（例如`nav`，`div`）等等，那么这些就是组件布局，但仍然按照文档流的总体布局规则。
+
+
 
 **块盒**
 
@@ -1405,52 +1450,115 @@ margin:auto， 表示 0
 
 两个常规流块盒，上下外边距相邻(没有 border 进行隔开)，会进行合并。(两个外边距取最大值。)要时刻注意上下外边距的合并。
 
-#### 浮动布局
+------
 
-##### 应用场景
+#### float（浮动）
 
-1. 文字环绕
-2. 横向排列
+浮动一般用于文字环绕或者横向排列。它其实就是将元素从常规文档流中取出来，形成浮动的效果，这种效果使得元素似乎不在页面之上。
+
+对元素样式`float`的属性值进行修改：
+
+- `left`：左浮动，元素靠上靠左。
+- `right`：右浮动，元素靠上靠右。
+- `none`：默认值，即仍保持常规流。
+
+浮动已经很少使用，但仍需了解一下。
+
+##### 高度坍塌
+
+我们在设置浮动时，常常会遇到高度坍塌，原因就是：常规流里盒子的自动高度（auto）在计算时，并不会考虑浮动盒子。因而当我们对这个盒子里面的元素设置浮动，高度就会变为0。
+
+------
+
+##### 清除浮动
+
+为了解决高度坍塌问题，一种方法就是在出现高度坍塌的元素中添加一个空元素，并设置其`clear`属性值：
+
+- `left`：清除左浮动，该空元素必须出现在前面所有左浮动盒子的下方
+- `right`：清除右浮动，该空元素必须出现在前面所有右浮动盒子的下方
+- `both`：清除左右浮动，该空元素必须出现在前面所有浮动盒子的下方
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>📘 The Code Magazine</h1>
+
+      <nav>
+        <a href="blog.html">Blog</a>
+        <a href="#">Challenges</a>
+        <a href="#">Flexbox</a>
+        <a href="#">CSS Grid</a>
+      </nav>
+        
+      <div class="clear"></div>	<!-- add the div element -->
+    </header>
+  </body>
+</html>
+```
 
 ```css
-<head>
-    <style>
-        .container{
-            width:1000px;
-            height:500px;
-            background:lightblue;
-        }
-        .container .item{
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            border: 2px dashed black ;
-            color: #fff;
-            font-style: italic;
-            font-size: 2em;
-            float:left
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-</body>
+h1 {
+    float: right;
+}
+
+nav {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
 ```
+
+另外一种解决方法`clearfix`不直接显示添加元素，而是在高度坍塌的元素中使用伪元素选择器，并设置其clear属性：
+
+```html
+<body>
+    <header class="main-header clearfix">
+      <h1>📘 The Code Magazine</h1>
+
+      <nav>
+        <a href="blog.html">Blog</a>
+        <a href="#">Challenges</a>
+        <a href="#">Flexbox</a>
+        <a href="#">CSS Grid</a>
+      </nav>
+    </header>
+  </body>
+```
+
+```css
+h1 {
+    float: right;
+}
+
+nav {
+    float: left;
+}
+
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;	
+    /* after和before伪元素都默认行盒，而clear属性适用于块盒 */
+}
+```
+
+------
+
+#### 浮动布局
 
 ##### 浮动的基本特点
 
-只要修改 float 属性值为：
-
-- left：左浮动，元素靠上靠左
-- right：右浮动，元素靠上靠右
-
-float 默认值为 none，即为常规流
-
-> 当一个元素浮动后，==元素必定为块盒==(即更改 display 属性为 block)
+> 为块盒==(即更改 display 属性为 block)
 > 浮动元素的包含块，和常规流一样，为父元素的内容盒
 
 ##### 盒子尺寸
@@ -1481,9 +1589,7 @@ float 默认值为 none，即为常规流
 
 6. 外边距合并不会发生
 
-##### 高度坍塌
 
-高度坍塌的根源：常规流盒子的自动高度(auto---自动适应高度)在计算时，不会考虑浮动盒子。因而会出现高度坍塌现象，此时设置常规流盒的高度为固定值则会避免此现象。
 
 ```css
 <head>
@@ -1506,77 +1612,6 @@ float 默认值为 none，即为常规流
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
-    </div>
-<body>
-```
-
-##### 清除浮动
-
-==涉及 css 属性：clear==
-
-- 默认值：none
-- left：清除左浮动，该元素必须出现在前面所有左浮动盒子的下方
-- right：清除右浮动，该元素必须出现在前面所有右浮动盒子的下方
-- both：清除左右浮动，该元素必须出现在前面所有浮动盒子的下方
-
-这样做可以解决高度坍塌：
-
-```css
-<head>
-  <style>
-        .container{
-            padding:30px;
-            background:lightblue;
-        }
-        .container .item{
-            background:red;
-            margin:2px;
-            width: 100px;
-            height:100px;
-            float:left;
-        }
-        .container .clearfix{
-            height: 100px;
-            clear:both;
-            background:blue;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="clearfix"></div>
-    </div>
-<body>
-----------------------------------或者
-<head>
-  <style>
-        .container{
-            padding:30px;
-            background:lightblue;
-        }
-        .container .item{
-            background:red;
-            margin:2px;
-            width: 100px;
-            height:100px;
-            float:left;
-        }
-        .clearfix::after{
-           content:'';
-           display:block;
-           clear:both;
-        }
-    </style>
-</head>
-<body>
-    <div class="container clearfix">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="clearfix"></div>
     </div>
 <body>
 ```
@@ -1608,7 +1643,7 @@ float 默认值为 none，即为常规流
 - 不会导致元素脱离文档流，只是让元素在原来位置上进行偏移,不会让元素进行压缩（与调整 margin 不同）
 - **常常用于为绝对定位提供包含块**
 
-可以通过四个 CSS 属性对设置其位置： 
+可以通过四个 CSS 属性对设置其位置：
 
 - left
 - right
@@ -1620,7 +1655,7 @@ float 默认值为 none，即为常规流
 ```css
 <head>
     <style>
-        .item{
+        .item {
             background:red;
             border: 1px black solid;
             height:50px;
@@ -1713,10 +1748,7 @@ z-index 可以是负数，如果是负数，若遇到常规流、浮动元素，
 - 绝对定位、固定定位元素**一定不是浮动**
 - 没有外边距合并
 
-### 应用(常见组件)
 
-1. 菜单栏
-2. 弹出层
 
 # JavaScript 笔记
 
