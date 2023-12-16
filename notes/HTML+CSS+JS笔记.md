@@ -315,7 +315,7 @@ content 内容部分的文本是对应链接上显示的文字。a 元素的属�
 
      ```html
      <a href="#"> return to the top of the page </a>
-    
+      
      <a href="#chapter1"> Chapter1 </a>
      <h2 id="chapter1">章节1</h2>
      <p>Lorem ipsum dolor</p>
@@ -667,12 +667,12 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
        font-weight: bold;
      }
      /* 匹配所有li元素父元素的第一个li元素*/
-    
+      
      ul li:last-child {
        font-style: italic;
      }
      /* 匹配所有ul元素的第一个li元素*/
-    
+      
      li:nth-child {
        font-color: red;
      }
@@ -1559,9 +1559,23 @@ flexbox常被用于解决垂直居中和等高排列。其基本构成元素：
 
 ![](E:\Github\Web-Development\notes\images\flexbox.png)
 
-`flex container`，`flex items`有不一样的属性设置，如下图所示：
+`flex container`,`flex items`有不一样的属性设置，如下图所示：
 
 ![](E:\Github\Web-Development\notes\images\flex-properties.png)
+
+属性详细解释：
+
+- `flexitems`：
+
+  - `order`：所有item的order属性默认都是0，如果想要设置某个item位列第一，可以先设置其order为-1，值越小，排在越前面；如果想要设置某个item位列最后，可以先设置其order为1，值越大，排在越后面。
+
+  - `flex` 属性是一个简写，它结合了三个重要的子属性：`flex-grow`, `flex-shrink`, 和 `flex-basis`。这些属性控制弹性元素如何在容器内伸缩。
+
+    1. `flex-basis`: 这个属性指定了弹性元素的初始大小。它类似于传统的 `width`属性，但在弹性容器中更适用。`flex-basis`设定的尺寸并不总是最终尺寸，因为元素可能会根据容器和内容的需要进行伸缩。
+    2. `flex-grow`: 这个属性定义了元素有多少能力来增长以填充父容器中的额外空间。默认值为 `0`，意味着元素不会增长超过其 `flex-basis`设定的大小。如果设置为 `1` 或更高，元素将伸展以占用更多的可用空间。比如，如果设置 `flex: 2;`，则表示 `flex-grow` 为 2，元素将占用比其它元素多两倍的额外空间。
+    3. `flex-shrink`: 相反地，`flex-shrink` 属性控制元素的缩小能力。默认值通常为 `1`，表示如果必要，元素可以缩小以适应更小的容器。高于 `1` 的值表示元素可以缩得更小。
+
+    在实践中，`flex` 属性通常被用作一个简写，例如 `flex: 0 1 auto` 表示 `flex-grow: 0; flex-shrink: 1; flex-basis: auto`。
 
 ##### 盒子尺寸
 
