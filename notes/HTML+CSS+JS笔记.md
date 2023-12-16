@@ -315,7 +315,7 @@ content 内容部分的文本是对应链接上显示的文字。a 元素的属�
 
      ```html
      <a href="#"> return to the top of the page </a>
-
+    
      <a href="#chapter1"> Chapter1 </a>
      <h2 id="chapter1">章节1</h2>
      <p>Lorem ipsum dolor</p>
@@ -667,12 +667,12 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
        font-weight: bold;
      }
      /* 匹配所有li元素父元素的第一个li元素*/
-
+    
      ul li:last-child {
        font-style: italic;
      }
      /* 匹配所有ul元素的第一个li元素*/
-
+    
      li:nth-child {
        font-color: red;
      }
@@ -721,7 +721,7 @@ CSS 包括很多属性，这些属性允许我们对已有的 HTML 进行内容�
      .body {
        position: relative;
      }
-
+     
      .demo-p::before {
        content: "TOP";
        display: inline-block;
@@ -1548,6 +1548,20 @@ nav {
 ###### 浮动间距
 
 为了在浮动盒之间留白，可以进行浮动间距的设计，需要注意的是，浮动盒之间的**外边距合并不会发生**，所以我们最好通过盒子的 `width`属性来调整间距。
+
+------
+
+#### flexbox
+
+flexbox是一组**构建一维布局**的css属性 。其主要设计思想，就是使得包含块（flex container）下的空白空间可以被子元素（flex items）自动划分。同时，子元素在包含块的水平或垂直方向都可以一个挨着一个地排列，这取决于设定的主轴（main axis）方向。
+
+flexbox常被用于解决垂直居中和等高排列。其基本构成元素：
+
+![](E:\Github\Web-Development\notes\images\flexbox.png)
+
+`flex container`，`flex items`有不一样的属性设置，如下图所示：
+
+![](E:\Github\Web-Development\notes\images\flex-properties.png)
 
 ##### 盒子尺寸
 
